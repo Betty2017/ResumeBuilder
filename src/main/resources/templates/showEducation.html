@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org ">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Robo Resume</title>
+
+    <th:block th:replace="base :: head"></th:block>
+</head>
+<body>
+<th:block th:replace="base :: nav"></th:block>
+  
+  <div class="container">
+    <div class="starter-template">
+        <h1>Robo Resume</h1>
+        
+    </div>
+	<table>
+      <tr th:each="education : ${educations}">
+        <td th:text="${education.majerName}"></td>
+        <td th:text="${education.typeOfDegree}"></td>
+        <td th:text="${education.institutionName}"></td>
+        <td th:text="${education.startYear}"></td>
+        <td th:text="${education.endYear}"></td>
+        
+       	<td>
+			 <!-- <a th:href="@{/addAnotherEducation/{personId}(personId=${education.person})}">Add Another Person Education</a>  -->
+			 <a th:href="@{/addAnotherEducation/{personId}(personId=${education.personId})}">Add Another Education</a>  
+            <!-- <a th:href="@{/addEducation}">Add Another Education</a>- -->
+            <a th:href="@{/showEducation/{educationId}(educationId=${education.educationId})}">Details</a> -
+            <a th:href="@{/deleteEducation/{educationId}(educationId=${education.educationId})}">Delete</a> -
+            <a th:href="@{/updateEducation/{educationId}(educationId=${education.educationId})}">Update</a>
+        </td> 
+        
+        
+        
+        
+    </tr>
+</table>
+</div><!-- /.container -->
+
+<th:block th:replace="base :: footlinks"></th:block>
+           
+  </body>
+</html>
+
+
+
+

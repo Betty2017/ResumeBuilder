@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org ">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Robo Resume</title>
+
+    <th:block th:replace="base :: head"></th:block>
+</head>
+<body>
+<th:block th:replace="base :: nav"></th:block>
+  
+  <div class="container">
+    <div class="starter-template">
+        <h1>Robo Resume</h1>
+        
+    </div>
+    <div class="List-group" th:each ="person : ${allPersons}">
+    	<p th:text ="${person}"/>
+    </div>
+    
+	<!-- <table>
+      <tr th:each="person : ${allPersons}">
+        <td th:text="${person.fName}"></td>
+        <td th:text="${person.lName}"></td>
+        <td th:text="${person.pNumber}"></td>
+       	<td>
+            <a th:href="@{/showOne/{personId}(personId=${person.personId})}">Details</a> -
+            <a th:href="@{/deleteOne/{personId}(personId=${person.personId})}">Delete</a>
+        </td> 
+        
+        
+    </tr>
+</table> -->
+</div><!-- /.container -->
+
+<th:block th:replace="base :: footlinks"></th:block>
+           
+  </body>
+</html>
+
+
+
+

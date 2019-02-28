@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org ">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Robo Resume</title>
+
+    <th:block th:replace="base :: head"></th:block>
+</head>
+<body>
+<th:block th:replace="base :: nav"></th:block>
+  
+  <div class="container">
+    <div class="starter-template">
+        <h1>Robo Resume</h1>
+        
+    </div>
+    
+  
+		     
+    <form action="#" th:action="@{/addEducation}" th:object="${education}" method="POST" >
+    <div><label><input type="hidden" name ="personId" th:value="${personId}"  />  </label></div>
+        <div><label>Major Name: <input type="text" th:field="*{majerName}" /> </label></div>
+        <div><label> Type of Degree: <input type="text" th:field="*{typeOfDegree}" /> </label></div>
+        <div><label>Institution Name: <input type="text" th:field="*{institutionName}" /> </label></div>
+        <div><label>Start Year <input type="text" th:field="*{startYear}" /> </label></div>
+      	<div><label>End Year <input type="text" th:field="*{endYear}" /> </label></div>
+        
+     
+        
+        <input type="submit" value="Show Education"/> 
+        
+    </form>
+    
+    
+</div><!-- /.container -->
+
+<th:block th:replace="base :: footlinks"></th:block>
+           
+  </body>
+</html>
